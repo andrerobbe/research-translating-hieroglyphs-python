@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}Text Translator{% endblock %}
+{% set title = 'text' %}
+
+{% block content %}
+	<form>
+		<div>
+			<p>English:</p>
+			<textarea placeholder="English text here ..." id="textarea-en" onKeyPress="javascript:changeTxt();"></textarea>
+		</div>
+		
+		<div>
+			<p class="hg">Hieroglyphs:</p>
+			<textarea placeholder="English text here ..." id="textarea-hg" disabled></textarea>
+		</div>
+	</form>
+{% endblock %}

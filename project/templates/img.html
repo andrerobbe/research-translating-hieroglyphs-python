@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block title %}Hieroglyphs Image Translator{% endblock %}
+{% set title = 'img' %}
+
+{% block content %}
+	<div>
+		<img src="../static/uploads/hieroglyphs.jpg" alt="hieroglyphs">
+	</div>
+	<a href="{{ url_for('translated') }}" class="btn">Translate</a>
+{% endblock %}

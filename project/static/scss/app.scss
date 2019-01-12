@@ -1,0 +1,159 @@
+$accent: #FAB56B;
+$bg: #1d1d1b;
+
+@font-face {
+	font-family: 'hg';
+	src: url(fonts/hieroglyphs.otf) format("opentype");
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial', sans-serif;
+}
+
+.wrapper{
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+header{
+	background-color: $bg;
+	padding: 30px 0;
+
+	nav ul {
+		display: flex;
+		margin: 0 auto;
+		padding: 0;
+		width: 645px;
+		list-style: none;
+
+		li {
+			display: inline;
+			padding: 15px 0;
+			border-bottom: 2px solid $bg;
+			margin: 0 15px;
+			transition: 0.2s all;
+
+			a{
+				text-decoration: none;
+				color: #fff;
+				padding: 19px 25px;
+			}
+
+			&:first-child { margin-left: 0; }
+			&:last-child { margin-right: 0; }
+
+			&:hover{
+				border-bottom: 2px solid $accent;
+				color: black !important;
+				cursor: pointer;
+			}
+
+			&.active{
+				border-bottom: 2px solid $accent;
+				color: black !important;
+				cursor: pointer;
+			}
+		}
+
+	}
+
+	&.flashes {
+		text-align: center;
+		margin: 0 auto;
+		font-size: 1em;
+		color: white;
+	}
+}
+
+#home{
+	form{
+		margin: 40px 0;
+		width: 300px;
+
+		input{ margin: 10px 0;}
+
+		input[type="file" i] {
+		    align-items: baseline;
+			color: inherit;
+			text-align: right !important;
+		}
+
+		input[type="submit" i]{
+			
+		}
+	}
+}
+
+#img{
+	div{
+		margin-bottom: 20px;
+	}
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 900px;
+		max-height: 500px;
+		border: 3px solid $bg;
+	}
+}
+
+.btn{
+	text-decoration-line: none;
+	border: 1px solid $accent;
+	border-radius: 50px;
+	font-size: 2em;
+	color: $accent;
+	text-align: center;
+	display: block;
+	padding: 10px 0;
+	margin: 0 auto;
+	width: 300px;
+	transition: 0.2s all;
+
+	&:hover{
+		color: white;
+		background-color: $accent;
+	}
+}
+
+#text{
+	form {
+		display: flex;
+	}
+	textarea{
+		height: 400px;
+		width: 462.5px;
+		font-size: 2em;
+		border: 3px solid $accent;
+		resize: none;
+		padding: 10px;
+
+		&:focus{
+			outline: none;
+			box-shadow: 0 0 10px $accent;
+		}
+		&:disabled{
+			background-color: white !important;
+		}
+	}
+
+	#textarea-en {
+		margin-right: 15px;
+	}
+	#textarea-hg {
+		font-family: 'hg';
+		font-size: 3em;
+		margin-left: 15px;
+	}
+	.hg{
+		margin-left: 15px;
+	}
+}

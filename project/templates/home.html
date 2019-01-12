@@ -1,13 +1,12 @@
 {% extends "index.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Hieroglyphs Image Translator{% endblock %}
+{% set title = 'home' %}
 
 {% block content %}
 	<div>
-		<form action="/upload" method="post" enctype="multipart/form-data" >
-			<span class="btn btn-default btn-file">
-				Browse <input type="file" name="image">
-			</span>
-			<input type="submit" value="Upload your image" class="btn btn-primary">
+		<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" >
+			<input class="browse" type="file" name="image">
+			<input class="upload" type="submit" value="Upload het bestand">
 		</form>
 	</div>
 {% endblock %}

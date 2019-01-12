@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Hieroglyphs Translater</title>
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='app.css') }}">
 </head>
 
 <body>
@@ -12,22 +12,24 @@
       <nav>
         <ul>
           <li {% if title == 'home' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Home</a></li>
+          <li {% if title == 'txt' %}class="active"{% endif %}><a href="{{ url_for('text') }}">Text</a></li>
         </ul>
       </nav>
     </div>
-    {% from "_macros.html" import flashes %}
-    {{ flashes() }}
-  </header>
-  
+    <div>
+      {% from "_macros.html" import flashes %}
+      {{ flashes() }}      
+    </div>
+  </header>  
   <main>
+    <div id="{{ title }}" class="wrapper"> 
     <h1>{{ self.title() }}</h1>
-    <div id="{{ title }}">        
       {% block content %}{% endblock %}
     </div>
   </main>
   <footer>
-
   </footer>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

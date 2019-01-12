@@ -1,2 +1,6 @@
 #cache
 *.pyc
+.sass-cache
+
+
+/project/static/*.map
