@@ -3,13 +3,11 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, flash
 
 
-"""
-	ROUTES
-"""
+
 @app.route('/home')
 @app.route('/')
 def index(msg=None):
-	return render_template('index.html')
+	return render_template('home.html')
 
 
 @app.route('/upload', methods=['POST'])

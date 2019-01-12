@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sightengine demo - Python and Flask</title>
+  <title>Hieroglyphs Translater</title>
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
 </head>
 
 <body>
   <header class="flashes">
+    <div>
+      <nav>
+        <ul>
+          <li {% if title == 'home' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+      </nav>
+    </div>
     {% from "_macros.html" import flashes %}
     {{ flashes() }}
   </header>
   
   <main>
-      <form action="/upload" method="post" enctype="multipart/form-data" >
-        <span class="btn btn-default btn-file">
-          Browse <input type="file" name="image">
-        </span>
-
-      <input type="submit" value="Upload your image" class="btn btn-primary">
-    </form>
+    <h1>{{ self.title() }}</h1>
+    <div id="{{ title }}">        
+      {% block content %}{% endblock %}
+    </div>
   </main>
-
   <footer>
 
   </footer>
-
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
