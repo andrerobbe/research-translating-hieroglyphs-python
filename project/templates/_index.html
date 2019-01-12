@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Hieroglyphs Translater</title>
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='app.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -11,8 +12,9 @@
     <div>
       <nav>
         <ul>
-          <li {% if title == 'home' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Home</a></li>
+          <li {% if title == 'home' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Image</a></li>
           <li {% if title == 'txt' %}class="active"{% endif %}><a href="{{ url_for('text') }}">Text</a></li>
+          <li {% if title == 'txt' %}class="active"{% endif %}><a href="{{ url_for('album') }}">Album</a></li>
         </ul>
       </nav>
     </div>

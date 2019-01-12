@@ -1,0 +1,16 @@
+{% extends "_index.html" %}
+{% block title %}Hieroglyphs{% endblock %}
+{% set title = 'album' %}
+
+{% block content %}
+	<div>
+		{% from "_macros.html" import section %}
+
+		{{ section(src='img/hieroglyphs1.jpg') }}
+		{{ section(src='img/hieroglyphs2.jpg') }}
+		{{ section(src='img/hieroglyphs3.jpg') }}
+		{{ section(src='img/hieroglyphs4.jpg') }}
+		{{ section(src='img/hieroglyphs5.jpg') }}
+		{{ section(src='img/hieroglyphs6.jpg') }}	
+	</div>
+{% endblock %}

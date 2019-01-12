@@ -1,4 +1,4 @@
-$accent: #FAB56B;
+$accent: DodgerBlue;
 $bg: #1d1d1b;
 
 @font-face {
@@ -17,9 +17,16 @@ body, html {
 	margin: 0 auto;
 }
 
+h1, h2 { text-align: center; }
+h2{ margin-top: 0; }
+
 ul {
 	list-style-type: none;
 	padding-left: 0;
+}
+
+main div {
+	margin-top: 60px;
 }
 
 header{
@@ -30,14 +37,14 @@ header{
 		display: flex;
 		margin: 0 auto;
 		padding: 0;
-		width: 645px;
+		width: 400px;
 		list-style: none;
 
 		li {
 			display: inline;
 			padding: 15px 0;
 			border-bottom: 2px solid $bg;
-			margin: 0 15px;
+			margin: 0 auto;
 			transition: 0.2s all;
 
 			a{
@@ -74,7 +81,7 @@ header{
 
 #home{
 	form{
-		margin: 40px 0;
+		margin: 40px auto;
 		width: 300px;
 
 		input{ margin: 10px 0;}
@@ -91,36 +98,32 @@ header{
 	}
 }
 
-#img{
-	div{
-		margin-bottom: 20px;
-	}
+
+#upload{
 	img{
 		display: block;
-		margin-left: auto;
-		margin-right: auto;
+		margin: 20px auto 0;
 		max-width: 900px;
 		max-height: 500px;
 		border: 3px solid $bg;
 	}
-}
 
-.btn{
-	text-decoration-line: none;
-	border: 1px solid $accent;
-	border-radius: 50px;
-	font-size: 2em;
-	color: $accent;
-	text-align: center;
-	display: block;
-	padding: 10px 0;
-	margin: 0 auto;
-	width: 300px;
-	transition: 0.2s all;
+	.btn{
+		text-decoration-line: none;
+		border: 2px solid $accent;
+		font-size: 1.3em;
+		color: $accent;
+		text-align: center;
+		display: block;
+		padding: 15px 0;
+		margin: 0 auto;
+		transition: 0.2s all;
+		max-width: 450px;
 
-	&:hover{
-		color: white;
-		background-color: $accent;
+		&:hover{
+			color: white;
+			background-color: $accent;
+		}
 	}
 }
 
@@ -153,7 +156,69 @@ header{
 		font-size: 3em;
 		margin-left: 15px;
 	}
-	.hg{
-		margin-left: 15px;
+}
+
+
+section {
+	float: left;
+	width: 310px;
+	height: 280px;
+	padding: 5px;
+	background-color: $bg;
+	margin-bottom: 10px;
+	
+	img {
+		width: 100%;
+		height: 224px;
 	}
+
+	a {
+		text-decoration: none;
+		background-color: transparent;
+		border: none;
+		color: $accent;
+		padding: 12px 30px 12px 20px;
+		margin-top: 2px;
+		display: block;
+		cursor: pointer;
+		font-size: 20px;
+		text-align: center;
+		transition: all 0.2s;
+
+		&:hover{
+			background-color: $accent;
+			color: white;
+		}
+
+		.fa-download{
+			margin-right: 20px;
+		}
+	}
+}
+
+section:nth-child(3n+2){
+	margin: 0 10px;
+}
+
+
+#translated {
+
+
+	p{
+		font-size: 1.5em;
+	}
+
+	section {
+		height: auto;
+		margin: 0 30px;
+
+		img {
+			height: auto;
+		}
+
+		a{
+			display: none;
+		}
+	}
+
 }

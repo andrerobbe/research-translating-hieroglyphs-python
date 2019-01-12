@@ -5,22 +5,19 @@ from flask import Flask, render_template, redirect, request, url_for, flash
 
 
 
-@app.route('/home')
 @app.route('/')
+@app.route('/home')
 def index():
 	return render_template('home.html')
-
-@app.route('/images')
-def img():
-	return render_template('img.html')
 
 @app.route('/text')
 def text():
 	return render_template('text.html')
 
-@app.route('/translated')
-def translated():
-	return render_template('translated.html')
+@app.route('/album')
+def album():
+	return render_template('album.html')
+
 
 
 @app.route('/upload', methods=['POST'])
@@ -36,5 +33,11 @@ def upload():
 	else:
 		flash('Bestand is geen ' + str(extensions))
 		render = 'home.html'
-		
+
 	return render_template(render)
+
+
+@app.route('/translated')
+def translated():
+	lang = '123'
+	return render_template('translated.html', lang=lang)
