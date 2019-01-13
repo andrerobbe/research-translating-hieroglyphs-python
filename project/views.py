@@ -3,14 +3,11 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, flash
 
 
-curr_dir = app.config['CURRENT_FOLDER']
-upl_dir = app.config['UPLOAD_FOLDER']
-img_name = 'hierogyphs'
-img_path = curr_dir + upl_dir + img_name
-extensions = ['.jpg', '.png']
-img_ext = ''
 img = ''
-
+img_path = app.config['CURRENT_FOLDER'] + app.config['UPLOAD_FOLDER']
+img_name = 'hierogyphs'
+img_ext = '.jpg'
+extensions = ['.jpg', '.png']
 
 
 @app.route('/')
@@ -36,7 +33,7 @@ def upload():
 
 	if img_ext in extensions:
 		#os.patch.join escapes of \t etc
-		f = os.path.join(img_path + img_ext)
+		f = os.path.join(img_path + img_name + img_ext)
 		img.save(f)
 		render = 'upload.html'
 	else:
@@ -57,9 +54,9 @@ def translated():
 	print b[0]
 	"""
 
-	translation = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit.'
+	msg = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit.'
 
-	return render_template('translated.html', img_name=img_name, img_ext=img_ext, translation=translation)
+	return render_template('translated.html', img_name=img_name, img_ext=img_ext, msg=msg)
 
 
 

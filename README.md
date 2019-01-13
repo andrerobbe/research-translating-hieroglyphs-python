@@ -1,4 +1,4 @@
-# research-translating-hieroglyphs-python
+# Research: Can I translate hieroglyphs with python?
 
 
 #### resources
