@@ -1,13 +1,21 @@
 from project import app
 import os
-
 from flask import Flask, render_template, redirect, request, url_for, flash
+
+
+curr_dir = app.config['CURRENT_FOLDER']
+upl_dir = app.config['UPLOAD_FOLDER']
+img_name = 'hierogyphs'
+img_path = curr_dir + upl_dir + img_name
+extensions = ['.jpg', '.png']
+img_ext = ''
+img = ''
 
 
 
 @app.route('/')
 @app.route('/home')
-def index():
+def index(*args):
 	return render_template('home.html')
 
 @app.route('/text')
@@ -22,22 +30,36 @@ def album():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-	file = request.files['image']
-	extensions = ['.jpg', '.png']
-	file_extension = file.filename[-4:]
+	global img, img_ext
+	img = request.files['image']
+	img_ext = img.filename[-4:]
 
-	if file_extension in extensions:
-		f = os.path.join(app.config['CURRENT_FOLDER'], app.config['UPLOAD_FOLDER'], 'hieroglyphs.jpg')
-		file.save(f)
-		render = 'img.html'
+	if img_ext in extensions:
+		#os.patch.join escapes of \t etc
+		f = os.path.join(img_path + img_ext)
+		img.save(f)
+		render = 'upload.html'
 	else:
 		flash('Bestand is geen ' + str(extensions))
 		render = 'home.html'
 
-	return render_template(render)
+	return render_template(render, img_name=img_name, img_ext=img_ext)
 
+import base64
 
 @app.route('/translated')
 def translated():
-	lang = '123'
-	return render_template('translated.html', lang=lang)
+	"""
+	with open('img', "rb") as imageFile:
+		f = imageFile.read()
+		b = bytearray(f)
+
+	print b[0]
+	"""
+
+	translation = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit.'
+
+	return render_template('translated.html', img_name=img_name, img_ext=img_ext, translation=translation)
+
+
+

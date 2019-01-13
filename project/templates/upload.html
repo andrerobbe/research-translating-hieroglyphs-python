@@ -5,6 +5,7 @@
 {% block content %}
 	<div>
 		<a href="{{ url_for('translated') }}" class="btn">Translate</a>
-		<img src="../static/uploads/hieroglyphs.jpg" alt="hieroglyphs">
+		<img src="../static/uploads/{{img_name}}{{ img_ext }}" alt="{{img_name}}">
 	</div>
+	
 {% endblock %}

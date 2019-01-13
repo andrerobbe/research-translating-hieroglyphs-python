@@ -14,10 +14,10 @@
 
 
 
-{% macro section(src) %}
-<section class="img-section">
-	<img src="../static/{{ src }}" alt="hieroglyphs">
-	<a href="../static/{{ src }}" download="{{ src }}" class="btn"><i class="fa fa-download"></i> Download</a>
+{% macro section(src, img_ext) %}
+<section class="img_section">
+	<img src="../static/{{ src }}{{ img_ext }}" alt="{{img_name}}">
+	<a href="../static/{{ src }}{{ img_ext }}" download="{{ src }}{{ img_ext }}" class="btn"><i class="fa fa-download"></i> Download</a>
 </section>
 {% endmacro %}
 
