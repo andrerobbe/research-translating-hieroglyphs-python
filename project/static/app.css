@@ -170,4 +170,19 @@ section:nth-child(3n+2) {
   #translated section img {
     height: auto; }
 
+#loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 25px auto 0;
+  width: 300px;
+  display: none;
+  transition: 0.2s all; }
+
+.show-loading {
+  display: block !important; }
+
+a.btn:empty:before {
+  content: "\200b"; }
+
 /*# sourceMappingURL=app.css.map */

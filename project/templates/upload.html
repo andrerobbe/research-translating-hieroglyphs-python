@@ -4,7 +4,7 @@
 
 {% block content %}
 	<div>
-		<a href="{{ url_for('translated') }}" class="btn">Translate</a>
+		<a href="{{ url_for('translated') }}" class="btn" id="btn-translate" onClick="showLoading()">Translate</a>
 		<img src="../static/uploads/{{img_name}}{{ img_ext }}" alt="{{img_name}}">
 	</div>
 	

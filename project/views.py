@@ -93,6 +93,8 @@ def translated():
 
 ##############################################################################################################################################################
 ##############################################################################################################################################################
+##############################################################################################################################################################
+##############################################################################################################################################################
 
 
 
@@ -118,34 +120,35 @@ def getAverageBrightness(image):
 def covertImageToAscii(cols=None, scale=None, moreLevels=None): 
 	global gscale1, gscale2, filename
 
+	# convert into greyscale
+	image = PIL.Image.open(filename).convert('L')
+	W, H = image.size[0], image.size[1]
+	print("Input image dimensions: %d x %d" % (W, H)) 
+
+
 	#set arguments
 	if scale:
 		scale = float(scale)
 	else:
-		scale = 0.6  #set scale default as 0.43 which suits Courier font
+		scale = 1  # 0.43 suits Courier font
 	
 	if cols:
 		cols = int(cols)
 	else:
-		cols = 200
+		cols = int(round(W/2))
 
-    # convert into greyscale and split img into grid
-	image = PIL.Image.open(filename).convert('L')
 
-	W, H = image.size[0], image.size[1]
-	
-	print("Input image dimensions: %d x %d" % (W, H)) 
+	#split img into grid
 	w = W/cols
 	h = w/scale
-	rows = int(H/h) 
+	rows = int(H/h)
 	print("Cols: %d, Rows: %d" % (cols, rows))
 	print("Tile dims: %d x %d" % (w, h))
 
-
 	#check if image size is too small 
 	if cols > W or rows > H: 
-		print("Image too small for specified cols!") 
-		#exit(0) 
+		flash('Image too small for specified cols!')
+		return render_template('img.html')
 
 
 	####################################

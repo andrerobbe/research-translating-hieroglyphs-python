@@ -24,6 +24,9 @@
     </div>
   </header>  
   <main>
+    <div id="loader">
+      <img src="../static/img/loading.gif" alt="loading gif">
+    </div>
     <div id="{{ title }}" class="wrapper"> 
     <h1>{{ self.title() }}</h1>
       {% block content %}{% endblock %}

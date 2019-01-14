@@ -124,6 +124,7 @@ header{
 		transition: 0.2s all;
 		max-width: 450px;
 
+
 		&:hover{
 			color: white;
 			background-color: $accent;
@@ -240,4 +241,21 @@ section:nth-child(3n+2){
 		}*/
 	}
 
+}
+
+#loader{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 25px auto 0;
+	width: 300px;
+	display: none;
+	transition: 0.2s all;
+}
+.show-loading {
+	display: block !important;
+}
+
+a.btn:empty:before {
+  content: "\200b"; // unicode zero width space character
 }
