@@ -20,6 +20,7 @@ https://medium.com/@sightengine_/image-upload-and-moderation-with-python-and-fla
 https://sightengine.com/detect-artificial-text-watermarks
 
 
+
 pip install pil
 pip install numpy
 pip install pytesseract
@@ -28,6 +29,6 @@ pip install opencv-python
 install tesseract https://github.com/tesseract-ocr/tesseract/wiki
 
 
-<img src="img/tesseract-module.png" alt="error module tesseract">
-<img src="img/install-tesseract.png" alt="error during install tesseract">
-<img src="img/converting-image-ascii-image-python.png" alt="convert to ascii">
+<img src="img/converting-image-ascii-image-python.PNG" alt="convert to ascii">
+<img src="img/imgToTxt.PNG" alt="image converted to text">
+<img src="img/imgToTxt.PNG2" alt="image converted to text">
