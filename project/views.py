@@ -133,12 +133,11 @@ def covertImageToAscii(cols=None, scale=None, moreLevels=None):
 	image = PIL.Image.open(filename).convert('L')
 
 	W, H = image.size[0], image.size[1]
-
+	
 	print("Input image dimensions: %d x %d" % (W, H)) 
 	w = W/cols
 	h = w/scale
-	rows = int(H/h)
-	
+	rows = int(H/h) 
 	print("Cols: %d, Rows: %d" % (cols, rows))
 	print("Tile dims: %d x %d" % (w, h))
 
@@ -155,8 +154,8 @@ def covertImageToAscii(cols=None, scale=None, moreLevels=None):
 	aimg = [] 
 	
 	for j in range(rows): #generate list of dimensions
-		y1 = int(j*H) 
-		y2 = int((j+1)*H) 
+		y1 = int(j*h) 
+		y2 = int((j+1)*h) 
 		
 		if j == rows-1: #correct last tile
 			y2 = H 
