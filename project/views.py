@@ -78,13 +78,12 @@ def upload():
 
 @app.route('/translated')
 def translated():
-
-	#output = client.check('text').set_file(filename) # Sightengine API call to check for txt on img
-
+	#convert to ascii and create file
 	msg = covertImageToAscii() #args: cols, scale, moreLevels
 	path = img_path + 'output.txt'
 	output = writeToFile(msg, path)
 
+	# read txt from img
 	imgToTxt = tesserImgToTxt(filename)
 
 	return render_template('translated.html', img_name=img_name, img_ext=img_ext, txt=imgToTxt)

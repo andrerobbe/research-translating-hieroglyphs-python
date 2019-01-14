@@ -4,3 +4,6 @@
 
 
 /project/static/*.map
+/project/tests
+
+*.mp4
