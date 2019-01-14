@@ -12,7 +12,7 @@
     <div>
       <nav>
         <ul>
-          <li {% if title == 'home' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Image</a></li>
+          <li {% if title == 'img' %}class="active"{% endif %}><a href="{{ url_for('index') }}">Image</a></li>
           <li {% if title == 'txt' %}class="active"{% endif %}><a href="{{ url_for('text') }}">Text</a></li>
           <li {% if title == 'txt' %}class="active"{% endif %}><a href="{{ url_for('album') }}">Album</a></li>
         </ul>

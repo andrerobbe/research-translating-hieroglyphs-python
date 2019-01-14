@@ -63,12 +63,12 @@ header {
     font-size: 1em;
     color: white; }
 
-#home form {
+#img form {
   margin: 40px auto;
   width: 300px; }
-  #home form input {
+  #img form input {
     margin: 10px 0; }
-  #home form input[type="file" i] {
+  #img form input[type="file" i] {
     align-items: baseline;
     color: inherit;
     text-align: right !important; }
@@ -96,23 +96,25 @@ header {
 
 #text form {
   display: flex; }
-#text textarea {
+
+textarea {
   height: 400px;
   width: 462.5px;
-  font-size: 2em;
+  font-size: 2.2em;
   border: 3px solid DodgerBlue;
   resize: none;
   padding: 10px; }
-  #text textarea:focus {
+  textarea:focus {
     outline: none;
     box-shadow: 0 0 10px DodgerBlue; }
-  #text textarea:disabled {
+  textarea:disabled {
     background-color: white !important; }
-#text #textarea-en {
+
+#textarea-en {
   margin-right: 15px; }
-#text #textarea-hg {
+
+#textarea-hg {
   font-family: 'hg';
-  font-size: 3em;
   margin-left: 15px; }
 
 section {
@@ -146,14 +148,26 @@ section {
 section:nth-child(3n+2) {
   margin: 0 10px; }
 
-#translated p {
-  font-size: 1.5em; }
+#translated .translation {
+  display: flex;
+  max-width: 500px;
+  margin-top: 0; }
+  #translated .translation div {
+    margin-bottom: 120px; }
+  #translated .translation p {
+    font-size: 1.2em;
+    text-align: center; }
+  #translated .translation section textarea {
+    text-align: center; }
 #translated section {
+  float: none;
   height: auto;
-  margin: 0 30px; }
+  margin: 0 auto;
+  /*
+  a{
+  	display: none;
+  }*/ }
   #translated section img {
     height: auto; }
-  #translated section a {
-    display: none; }
 
 /*# sourceMappingURL=app.css.map */
