@@ -22,6 +22,3 @@ def screen_grab_as_numpy_array(loc1, loc2, loc3, loc4):
 	return im
 
 print(tesserImg(screen_grab_as_numpy_array(1812,0,1860,50)))
-
-
-print pytesseract.image_to_string(PIL.Image.open('../static/img/alfabet.jpg'))
