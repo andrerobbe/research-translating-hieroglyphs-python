@@ -1,4 +1,4 @@
-# Proof of concept: Translate hieroglyphs images through Python?
+# Proof of Concept: Translate hieroglyphs through Python?
 
 
 ## Inhoud
@@ -34,7 +34,7 @@ pip install opencv-python
  ```
 - install tesseract https://github.com/tesseract-ocr/tesseract/wiki
 
-
+<br>
 
 ## Gevolgde Stappen
 - Site met python maken in flask
@@ -46,6 +46,7 @@ pip install opencv-python
 - Images omzetten naar text
 
 
+<br>
 
 ### Site met Python en Flask
 Dit was redelijk makkelijk doordat we met web-concepten dit ook al eens gedaan hebben. Dit is gewoon een init py script aanmaken, samen met een routing script die dan de HTML templates rendered via flask. 
@@ -79,10 +80,7 @@ def upload_file():
 HTML:
 ```HTML
 <form action="/upload" method="post" enctype="multipart/form-data" >
-	<span class="btn btn-default btn-file">
-		Browse <input type="file" name="image">
-	</span>
-
+	<span class="btn btn-default btn-file">Browse <input type="file" name="image"></span>
 	<input type="submit" value="Upload your image" class="btn btn-primary">
 </form>
 ```
@@ -95,7 +93,10 @@ Er zijn een paar belangrijke zaken waar je op moet letten bij hiërogliefen.
 
 Ten eerste doet deze vertaler een fonetische vertaling (of beter gezegd 'transliteration'). Hiërogliefen zijn nooit echt een officieel alfabet geweest. Er zijn ongeveer 24 verschillende symbolen die eenvoudige geluiden zijn die erg op ons alfabet lijken. Dat zijn 'unilaterals'. Er zijn ook hiërogliefen die een combinatie van letters zijn zoals 'nfr'.
 
-<img src="img/nfr.PNG" alt="nfr hyroglyph" style="text-align: : center;">
+<p align="center">
+	<img src="img/nfr.PNG" alt="nfr hyroglyph">
+</p>
+
 
 Dat betekend 'mooi', 'perfect' of 'goed'. Dit soort combinaties van letters zijn gewoon niet uit te spreken en is ook moeilijk te vertalen.
 In deze vertaler worden letters dus gewoon letterlijk één voor één vervangen door de hiëroglief of andersom.
@@ -141,7 +142,9 @@ function changeTxtToEN(){
 }
 ```
 <br>
-<img src="img/font.PNG" alt="hieroglyphs font">
+<p align="center">
+	<img src="img/font.PNG" alt="hieroglyphs font">
+</p>
 
 
 
@@ -158,9 +161,9 @@ client = SightengineClient('407400170', 'PVmF8vE3vnunnu8LQumR')
 output = client.check('text').set_file(filename)
 print output
 ```
-
+<br>
 <img src="img/sightengine.PNG" alt="sightengine API call">
-
+<br>
 Helaas verteld deze API alleen of er text in zit of niet, en of deze er al op zat of achteraf op is geplaatst. Verder kan je uit deze API nog dingen halen zoals weapons, hatesigns, face detection, celebrities, etc. Maar de API verteld eigenlijk alleen hoeveel dat op de foto voorkomt en niet echt welke text bijvoorbeeld.
 
 <br>
@@ -249,7 +252,9 @@ def covertImageToAscii(cols=None, scale=None, moreLevels=None):
 	return aimg
 ```
 <br>
-<img src="img/convert-to-ascii.PNG" alt="convert to ascii art"><br>
+Met als resultaat: 
+<br><br>
+<img src="img/convert-to-ascii.PNG" alt="convert to ascii art">
 
 Uiteindelijk kon ik hier achteraf toch niet zoveel mee doen, maar het ziet er nog wel fancy uit!
 
@@ -263,13 +268,18 @@ Bij de installatie ging het niet zo soepel. Ik probeerde eerst via de command li
 pip install pytesseract
 ```
 en dan importen in python. Maar dat bleek niet echt te werken.
-<img src="img/tesseract-module.PNG" alt="error module tesseract">
+<p align="center">
+	<img src="img/tesseract-module.PNG" alt="error module tesseract">
+</p>
+
 
 Via de github een .exe gevonden waar ook het een en ander fout liep..
-<img src="img/install-tesseract.PNG" alt="install error tesseract">
-
+<p align="center">
+	<img src="img/install-tesseract.PNG" alt="install error tesseract">
+</p>
 
 Na flink wat omwegen en gegoogle toch kunnen installeren. Eerst heb ik het volgende geprobeerd:
+
 ```python
 import pyautogui
 import pytesseract
@@ -299,24 +309,37 @@ print(tesserImg(screen_grab_as_numpy_array(1812,0,1860,50)))
 De lijn code met tesseract_cmd is zodat je het programma niet in je path variable moet doen.
 
 De functie screen_grab_as_numpy_array neemt een screenshot van de locatie rechtsboven in waar de tijd staat (ik heb mijn taakbalk boven staan). Daarna wordt deze screenshot uitgelezen en omgezet in text in de tesserImg functie. Het wordt omgezet naar zwart wit en vergroot zodat er minder kans is om letters foutief te interpreteren.
-<img src="img/screenshotToTxt.PNG" alt="screenshot converted to text"><br>
+<br>
+<p align="center">
+	<img src="img/screenshotToTxt.PNG" alt="screenshot converted to text"><br>
+</p>
+<br>
 
 Nu moet ik gewoon hetzelfde gebruiken maar dan eens op een image.
-<img src="img/imgToTxt.PNG" alt="image converted to text"><br>
+<br>
+<p align="center">
+	<img src="img/imgToTxt.PNG" alt="image converted to text"><br>
+</p>
+<br>
 
 Helaas geeft de code cv2.resize en cv2.threshold een error in de website, door een memory leak. Deze heb ik nog niet weten op te lossen. Maar het uitlezen van text gaat redelijk goed nu.
-<img src="img/ImgToTxt2.PNG" alt="image converted to text"><br>
-
+<br><br>
+<p align="center">
+	<img src="img/ImgToTxt2.PNG" alt="image converted to text"><br>
+</p>
+<br>
 
 Bij hiërogliefen gaat dit helaas iets minder goed, en ook enkel met images die vrij duidelijk zijn. Als er teveel geel in zit herkent hij niks. Toch kan hij er wel letters uit halen. Deze letter combinaties vormen dan woorden, zoals bijvoorbeeld het voorbeeld hierboven van 'nfr' dat 'mooi' betekend. Voor zover ik weet bestaan er geen packages om deze letters te ontcijferen om er echte woorden van te maken. Google Translate bijvoorbeeld zet ook gewoon de letters in een ander font, zonder iets van vertaling eraan te doen.
-<img src="img/hg-to-txt.PNG" alt="hieroglyphs converted to text"><br>
-
+<br><br>
+<p align="center">
+	<img src="img/hg-to-txt.PNG" alt="hieroglyphs converted to text"><br>
+</p>
 
 <br>
 
 ## Conclusie
 Kan je met python een hiërogliefen translator maken? Deels.
-De translator herkent wel letters uit de afbeeldingen, als deze duidelijk genoeg zijn, maar er is voor zo ver ik weet geen echte translator die bepaalde lettercombinaties bijvoorbeeld omzet in woorden. De manier waarop momenteel vertaald wordt is eigenlijk gewoon door ons alfabet rechtstreeks in een ander font te zetten, zonder dus rekening te houden met letter combinaties die wij niet kennen, maar wel bestaan in de hiërogliefen
+De translator herkent wel letters uit de afbeeldingen, als deze duidelijk genoeg zijn, maar er is voor zo ver ik weet geen echte translator die bepaalde lettercombinaties bijvoorbeeld omzet in woorden. De manier waarop momenteel vertaald wordt is eigenlijk gewoon door ons alfabet rechtstreeks in een ander font te zetten, zonder dus rekening te houden met letter combinaties die wij niet kennen, maar wel bestaan in de hiërogliefen.
 
 
 <br>
